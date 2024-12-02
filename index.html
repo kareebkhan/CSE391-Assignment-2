@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 02</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      
+    <div class="intro">
+        <!-- <h1>Assignment 2</h1> -->
+    </div>
+    <br>
+    <br>
+
+    <div class="quote">
+        <h2>Quote Generator</h2>
+        <div id="inner_q">
+            <p id="quote">"The greatest glory in living lies not in never falling, but in rising every time we fall"</p>
+
+        </div>
+        <div id="button-container">
+            <button class="color-button" id="c1">Green</button>
+            <button class="color-button" id="c2">Red</button>
+            <button class="color-button" id="c3">Orange</button>
+            <button class="color-button" id="c4">Black</button>
+        </div>
+    </div>
+    <script>
+        const quotes = [
+            "The greatest glory in living lies not in never falling, but in rising every time we fall",
+            "The way to get started is to quit talking and begin doing.",
+            "Life is what happens when you're busy making other plans.",
+            "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+            "The only way to do great work is to love what you do.",
+            "Believe you can and you're halfway there.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "Happiness is not something ready-made. It comes from your own actions.",
+            "The only impossible journey is the one you never begin.",
+            "Change your thoughts and you change your world.",
+            "The best way to predict the future is to invent it.",
+            "You miss 100% of the shots you don't take.",
+            "The secret of getting ahead is getting started.",
+            "I have not failed. I've just found 10,000 ways that won't work."
+            
+        ];
+
+
+        function generateRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quoteElement = document.getElementById("quote");
+            quoteElement.textContent = `"${quotes[randomIndex]}"`;
+        }
+
+
+        window.addEventListener('load', generateRandomQuote);
+
+        document.getElementById('button-container').addEventListener('click', function(event) {
+            if (event.target.classList.contains('color-button')) {
+                generateRandomQuote();
+            }
+        });
+    </script>
+    <br>
+    <br>
+
+    <div class="hero">
+      <h2>Hero Calculator</h2>
+      <div class="hero-container">
+        <input type="number" id="weight" placeholder="Enter weight... ">
+        <select id="conversionType">
+            <option value="kgToLbs" >Kilograms to Pounds</option>
+            <option value="lbsToKg">Pounds to Kilograms</option>
+        </select>
+        <button class="convert-button" onclick="convert()">Convert</button>
+        <p id="result"></p>
+    </div>
+      </div>
+
+      <br>
+      <br>
+  
+      <div id="number">   
+        <h2>Number Series Calculator</h2>
+            <form id="number-form">
+            <input type="text" id="numbers" placeholder="Enter a series of numbers... " size="50">
+        </form>
+    
+            <div class="result-container">
+                <h2>Results:</h2>
+                <p id="max"></p>
+                <p id="min"></p>
+                <p id="sum"></p>
+                <p id="average"></p>
+                <p id="reverse"></p>
+            </div>
+        </div>
+
+    <br>
+    <br>
+    <div id="magic">
+        <h2>Magic Box</h2>
+        <div id="magic-box-container"> 
+            <textarea id="textArea" rows="15" cols="60" placeholder="start typing..."></textarea><br>
+            <div id="ck-box">
+                <button id="clearBtn">Clear All</button>
+                <button id="capitalizeBtn">Capitalize</button>
+                <button id="sortBtn">Sort</button>
+                <button id="reverseBtn">Reverse</button>
+                <button id="stripBlankBtn">Strip Blank</button>
+                <button id="addNumbersBtn">Add Numbers</button>
+                <button id="shuffleBtn">Shuffle</button>
+        </div>
+        </div> 
+    </div>  
+<script src="script.js"></script>
+</body>
+
+</html>
