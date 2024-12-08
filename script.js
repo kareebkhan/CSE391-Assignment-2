@@ -111,9 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reverseBtn.addEventListener('click', () => {
         const lines = textArea.value.split('\n');
-        for i in lines {
-            i.reverse()
-        textArea.value = lines.reverse().join('\n');
+        const reversedLines = lines.map(line => line.split('').reverse().join(''));
+        textArea.value = reversedLines.join('\n');
     });
     
     stripBlankBtn.addEventListener('click', () => {
