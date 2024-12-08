@@ -1,26 +1,43 @@
 function getRandomQuote() {
-    fetch('https://api.quotable.io/random')
-        .then(response => response.json())
-        .then(data => {
-            const quote = document.getElementById('quote');
-            quote.innerText = data.content;
-        })
-        .catch(error => {
-            console.error('Error fetching random quote:', error);
-        });
-}
-
-
-
-function changeColors(color) {
-    const quoteContainer = document.getElementById('inner_q');
-    const quote = document.getElementById('quote');
-
-    quoteContainer.style.backgroundColor =  color;
-    quote.style.color = 'white';
-    quoteContainer.style.borderColor = color;
-
-}
+    fetch("https://api.quotable.io/random")
+      .then((response) => response.json())
+      .then((data) => {
+        const quote = document.getElementById("quote");
+        quote.innerText = data.content;
+      })
+      .catch((error) => {
+        console.error("Error fetching random quote:", error);
+      });
+  }
+  
+  function changeColors(color) {
+    const quoteContainer = document.getElementById("inner_q");
+    const quote = document.getElementById("quote");
+  
+    quote.style.color = color; // Change the font color
+    quoteContainer.style.backgroundColor = "white"; // Ensure background stays white
+  }
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    getRandomQuote();
+  
+    document.getElementById("c1").addEventListener("click", () => {
+      changeColors("#034c0d"); // Green
+      getRandomQuote();
+    });
+    document.getElementById("c2").addEventListener("click", () => {
+      changeColors("#bd0707"); // Red
+      getRandomQuote();
+    });
+    document.getElementById("c3").addEventListener("click", () => {
+      changeColors("rgb(255, 102, 0)"); // Orange
+      getRandomQuote();
+    });
+    document.getElementById("c4").addEventListener("click", () => {
+      changeColors("#000000"); // Black
+      getRandomQuote();
+    });
+  });
 
 document.addEventListener('DOMContentLoaded', function () {
     getRandomQuote();
